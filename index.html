@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Year 2025</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #000428, #004e92);
+      overflow: hidden;
+      font-family: 'Lucida Console', Monaco, monospace;
+    }
+
+    h1 {
+      position: relative;
+      color: #FFD700;
+      font-size: 5rem;
+      text-align: center;
+      text-shadow: 0 0 20px #FFD700, 0 0 30px #FF8C00, 0 0 40px #FF4500;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 20px #FFD700, 0 0 30px #FF8C00, 0 0 40px #FF4500;
+      }
+      to {
+        text-shadow: 0 0 30px #FFD700, 0 0 50px #FF8C00, 0 0 70px #FF4500;
+      }
+    }
+
+    .firework {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff0000, #ffa500, transparent);
+      animation: explode 1.5s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .flower {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #FF69B4, #FF1493);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: bloom 2s infinite;
+    }
+
+    @keyframes bloom {
+      0%, 100% {
+        transform: scale(0.8);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Happy New Year 2025!</h1>
+  </div>
+  <script>
+    function createFirework() {
+      const firework = document.createElement('div');
+      firework.className = 'firework';
+
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      firework.style.left = `${x}px`;
+      firework.style.top = `${y}px`;
+
+      document.body.appendChild(firework);
+
+      setTimeout(() => {
+        firework.remove();
+      }, 1500);
+    }
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      flower.style.left = `${x}px`;
+      flower.style.top = `${y}px`;
+
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 2000);
+    }
+
+    setInterval(createFirework, 300);
+    setInterval(createFlower, 500);
+  </script>
+</body>
+</html>
